@@ -1,0 +1,356 @@
+/* root */
+:root {
+    /* font */
+    --font-main: 'Pretendard', sans-serif;
+    --font-serif: 'Nanum Myeongjo', serif;
+
+    /* color */
+    --brand-g-1: #8ED4C5;
+    --brand-g-2: #79C3B3;
+    --brand-g-3: #488F83;
+    --brand-g-4: #316A61;
+
+    --brand-p-1: #F3B0B2;
+    --brand-p-2: #F39194;
+    --brand-p-3: #B97278;
+
+    --dark-1: #2A2A2A;
+    --dark-2: #4A4E57;
+    --dark-3: #999BA1;
+    --dark-4: #BBBBBB;
+
+    --light-1: #FFFFFF;
+    --light-2: #F2F2F5;
+    --light-3: #CECECE;
+
+    /* typography */
+    --font-title: 4.75rem;
+
+    /* shadow */
+    --shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+
+    /* layout */
+    --container-width: 1440px;
+    --container-lr-padding: 60px;
+    --container-tb-padding: 70px;
+
+}
+
+
+/* base */
+body {
+  font-family: var(--font-main);
+  color: var(--dark-1);
+}
+
+/* layout */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  margin: 0 auto;
+}
+
+/* -------- */
+/* 🔴 공통 🔴*/
+.title-text{
+    height: 11.75rem;
+    padding-left: 3.75rem;
+    padding-top:4.375rem;
+    padding-right: 3.75rem;
+    padding-bottom: 2.5rem;
+    align-items: center;
+
+}
+
+.subtitle {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.5rem;
+    
+    text-align: center;
+
+    margin-bottom: 0.5rem;
+
+}
+
+.title {
+    font-family: var(--font-main);
+    font-weight: 500;
+    font-size: 2.5rem;
+
+    text-align: center;
+}
+
+
+/* -------------------- */
+
+/* 각 섹션의 PC 스타일 */
+
+/* 🟪❇️--- hero --- */
+.hero {
+    width: 100vw;
+    height: 1080px;
+    background: url(../images/hero-bg.png) no-repeat center / cover;
+    /* 나중에 위에 배경 올리거나 데코 올리기 대비해서 */
+    position: relative;
+
+    /* 영역 밖 요소 자르기 */
+    overflow: hidden;
+}
+
+.hero-container {
+    height: 100%;
+    display: flex;
+    /* 오른쪽 끝 배치 */
+    justify-content: flex-end;
+    /* 밑으로 */
+    align-items: flex-end;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: var(--light-1);
+    text-align: right;
+    margin-bottom: 13.75rem;
+}
+
+.hero-subtitle {
+    margin-bottom: 0.625rem;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-shadow: var(--shadow);
+
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 4.75rem;
+    font-weight: 700;
+    text-shadow: var(--shadow);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: flex-end;
+    justify-content: center;
+    gap: 0.875rem;
+
+    margin-top: 1.625rem;
+
+}
+
+.hero-btn {
+    /* 위치 */
+    display: inline-flex;/* 버튼이 텍스트 길이만큼만 차지 */
+    align-items: center;
+    justify-content: center;
+
+    /* 폰트 */
+    font-family: var(--font-main);
+    font-size: 1.25rem;
+
+    /* 버튼 디자인 */
+    padding: 0.75rem 2rem;
+    border-radius: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap;
+    gap: 0.625rem;
+
+    /* 애니메이션 */
+    transition: all 0.4s;
+}
+
+.hero-btn-outline {
+    color: var(--light-1);
+    border: 1.5px solid var(--light-1);
+    background: rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+.hero-btn-outline::after {
+    content: ">";
+    width: 0.875rem;
+    height: 1.5rem;
+}
+
+
+.hero-btn-inline {
+    color: var(--dark-1);
+    background-color: var(--light-1);
+}
+
+/* 🟪❇️--- difficulties --- */
+.difficulties {
+    width: 100%;
+
+    background: linear-gradient(180deg, #F9FAFB 51.46%, #E0F3EF 68.77%, var(--brand-g-1) 100.03%) no-repeat center / cover;
+}
+
+.diff-container {
+    height: 100%;
+    position: relative;
+    text-align: center;
+    padding-top: var(--container-tb-padding);
+    padding-bottom: var(--container-tb-padding);
+}
+
+.bubbles{
+    width: 100%;
+    max-width: 56.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 3.75rem;
+    margin: 0 auto;
+}
+
+.bub1 {
+    width: 35.8125rem;
+}
+
+.bub2 {
+    width: 28.8125rem;
+    align-self: flex-end;
+}
+
+.bub3 {
+    width: 26.5rem;
+    align-self: center;
+
+}
+
+.dot {
+    font-family: var(--font-main);
+    font-weight: 700;
+    color: var(--light-1);
+    font-size: 3.75rem;
+    line-height: 3.125rem;
+    text-shadow: var(--shadow);
+    margin-bottom: 3.75rem;
+}
+
+.solution-text {
+    font-family: var(--font-main);
+    font-weight: 700;
+    color: var(--light-1);
+    font-size: 2.25rem;
+    line-height: 160%;
+
+}
+
+.solution-text .emphasis{
+    color: var(--brand-g-3);
+}
+
+/* 🟪❇️--- benefit --- */
+.benefit-container{
+    width: 100%;
+    padding-bottom: var(--container-tb-padding);
+}
+
+.top-bg {
+    width: 100%;
+    height: 9.0625rem;
+    background: url(../images/bg_shape.png) no-repeat center / cover;
+}
+
+.benefit-content{
+    width: 100%;
+    gap: 6.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.benefit-img {
+    width: 39.375rem;
+    height: auto;
+}
+
+.benefit-texts {
+    height: auto;
+}
+
+.num {
+    font-family: var(--font-main);
+    font-size: 2rem;
+    font-weight: 700;
+
+    width: 3.625rem;
+    height: 3.625rem;
+    border-radius: 100px;
+    background-color: var(--brand-p-2);
+    color: var(--light-1);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 1.25rem;
+}
+
+.benefit-title{
+    font-family: var(--font-main);
+    font-size: 2.625rem;
+    font-weight: 700;
+    line-height: 160%;
+    color: var(--dark-1);
+}
+
+.benefit-title .emphasis {
+    color: var(--brand-p-2);
+}
+
+/* 🌸 animation */
+@media (hover: hover) {
+    .hero-btn-outline:hover {
+        color: var(--light-1);
+        background: var(--dark-1);
+        border-color: var(--dark-1);
+    }
+
+    .hero-btn-inline:hover {
+        color: var(--light-1);
+        background-color: var(--brand-p-2);
+    }
+}
+
+/* ----- difficulties ----- */
+
+/* .difficulties {
+    position: relative;
+    width: 100%;
+    height: 1080px;
+    background: linear-gradient(180deg, #F9FAFB 51.46%, #E0F3EF 68.77%, var(--brand-g-1) 100.03%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.diff-container {
+    display: flex;
+    justify-content: center;
+}
+
+.diff-contents {
+    width: 100%;
+    text-align: center;
+}
+
+.diff-title {
+
+}
+
+.diff-bubbles img{
+    width: 1080px;
+    height: 100%;
+    background-position: center;
+} */
