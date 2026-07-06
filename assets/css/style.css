@@ -308,6 +308,13 @@ body {
     color: var(--brand-p-2);
 }
 
+/* 🟪❇️---Monthly-Flower --- */
+.mf-subt {
+    color: var(--dark-3);
+}
+
+
+
 /* 🌸 animation */
 @media (hover: hover) {
     .hero-btn-outline:hover {
