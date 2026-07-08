@@ -35,9 +35,12 @@
 
 
     /* layout */
-    --container-width: 67.5rem;
+    --container-width: 90rem;
     --container-lr-padding: 3.75rem;
     --container-tb-padding: 4.375rem;
+
+    /* sticky 영역 */
+    --benefit-sticky-height: min(100vh, 67.5rem);
 
 }
 
@@ -272,12 +275,21 @@ body {
 /* 🟪❇️--- benefit --- */
 .benefit {
     position: relative;
-    height: 300vh;
+    height: calc(var(--benefit-sticky-height) * 3);
+}
+
+.benefit-desktop {
+    display: block;
+    height: 100%;
+}
+
+.benefit-mobile {
+    display: none;
 }
 
 .benefit-container {
     width: 100%;
-    height: calc(100vh - 9.0625rem);
+    height: calc(var(--benefit-sticky-height) - 9.0625rem);
     padding-bottom: 0;
     display: flex;
     align-items: center;
@@ -290,15 +302,15 @@ body {
     background: url(../images/bg_shape.png) no-repeat center / cover;
 }
 
-.benefit-sticky{
-    position:sticky;
+.benefit-sticky {
+    position: sticky;
     top: 0;
-    height: 100vh;
+    height: var(--benefit-sticky-height);
     overflow: hidden;
 }
 
-.benefit-slider{
-    position:relative;
+.benefit-slider {
+    position: relative;
     width: 100%;
     height: 100%;
 }
@@ -310,14 +322,28 @@ body {
 
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: clamp(3.75rem, 5vw, 6.25rem);
 
     opacity: 0;
     transform: translateY(5rem);
-    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
-.benefit-content.is-active{
+.benefit-content.reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.benefit-second .num {
+    background-color: var(--brand-g-3);
+}
+
+.benefit-second .emphasis {
+    color: var(--brand-g-3);
+}
+
+.benefit-content.is-active {
     opacity: 1;
     transform: translateY(0);
 
@@ -325,8 +351,7 @@ body {
 
 
 .benefit-img {
-    /* width: clamp(21.25rem, 34.7222vw,39.451875rem); */
-    width: 45%;
+    width: clamp(21.25rem, 34.7222vw, 39.451875rem);
     max-width: 31.5rem;
     height: auto;
 }
@@ -362,9 +387,10 @@ body {
     color: var(--dark-1);
 }
 
-.benefit-title .emphasis {
+.emphasis {
     color: var(--brand-p-2);
 }
+
 
 /* 🟪❇️---Monthly-Flower --- */
 
@@ -474,17 +500,17 @@ body {
 
     /* ---- 🔴benefit ---- */
     .benefit-title {
-    font-size: 1.625rem;
-}
+        font-size: 1.625rem;
+    }
 
-.num {
-    font-size: 1.375rem;
+    .num {
+        font-size: 1.375rem;
 
-    width: 2.25rem;
-    height: 2.25rem;
+        width: 2.25rem;
+        height: 2.25rem;
 
-    margin-bottom: 0.75rem;
-}
+        margin-bottom: 0.75rem;
+    }
 }
 
 /* 🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱 */
@@ -569,58 +595,133 @@ body {
         line-height: 160%;
     }
 
-
-    
-
-}
-
-/* 🌸 scroll animation */
-/* benefit 섹션임 */
-/* 🌸 scroll animation */
-.scroll-up {
-    opacity: 0;
-    transform: translateY(3rem);
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-}
-
-.scroll-up.is-show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.delay-1 {
-    transition-delay: 0.3s;
-}
-
-.delay-2 {
-    transition-delay: 0.6s;
-}
-
-.delay-3 {
-    transition-delay: 0.9s;
-}
-
-.delay-4 {
-    transition-delay: 1.2s;
-}
-/* 🌸 text-focus-in animation */
-.text-focus-in {
-    opacity: 0;
-    filter: blur(12px);
-}
-
-.text-focus-in.is-show {
-    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-}
-
-@keyframes text-focus-in {
-    0% {
-        filter: blur(12px);
-        opacity: 0;
+    /* ---- 🔴benefit ---- */
+    .benefit-desktop {
+        display: none;
     }
 
-    100% {
-        filter: blur(0px);
+    .benefit-mobile {
+        display: block;
+    }
+
+    .benefit-mobile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .benefit-card {
+        width: 100%;
+        max-width: 28.5rem;
+        height: 14.625rem;
+        box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+        padding: 1.875rem 1.5625rem;
+        gap: 0.625rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .num {
+        display: inline-flex;
+        width: fit-content;
+        height: 1.25rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 0 0.4375rem;
+        border-radius: 1.25rem;
+    }
+
+    .benefit-mobile-title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 130%;
+    }
+
+    .benefit-mobile-img{
+        height: auto;
+    }
+
+    .card1 .benefit-mobile-img {
+        width: 7.5rem;
+        transform: scaleX(-1);
+    }
+
+    .card2 .benefit-mobile-img {
+        width: 6.020625rem;
+    }
+
+    .card3 .benefit-mobile-img {
+        width: 7.43755rem;
+    }
+    
+    .card2 .num {
+        background-color: var(--brand-g-3);
+    }
+
+    .card2 .emphasis {
+        color: var(--brand-g-3);
+    }
+
+    /* 🌸 scroll animation */
+    /* benefit 섹션임 */
+    /* 🌸 scroll animation */
+    .scroll-up {
+        opacity: 0;
+        transform: translateY(3rem);
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    }
+
+    .scroll-up.is-show {
         opacity: 1;
+        transform: translateY(0);
+    }
+
+    .delay-1 {
+        transition-delay: 0.2s;
+    }
+
+    .delay-2 {
+        transition-delay: 0.3s;
+    }
+
+    .delay-3 {
+        transition-delay: 0.4s;
+    }
+
+    .delay-4 {
+        transition-delay: 0.8s;
+    }
+
+    /* 🌸 text-focus-in animation */
+    .text-focus-in {
+        opacity: 0;
+        filter: blur(12px);
+    }
+
+    .text-focus-in.is-show {
+        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+
+    @keyframes text-focus-in {
+        0% {
+            filter: blur(12px);
+            opacity: 0;
+        }
+
+        100% {
+            filter: blur(0px);
+            opacity: 1;
+        }
     }
 }
