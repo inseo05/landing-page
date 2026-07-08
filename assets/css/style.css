@@ -554,6 +554,7 @@ body {
     }
 
     .hero-buttons {
+        gap:0.625;
         margin-top: 0.625rem;
     }
 
@@ -581,7 +582,7 @@ body {
     }
 
     .bub3 {
-        width: 12.5rem;
+        width: 13.75rem;
 
     }
 
