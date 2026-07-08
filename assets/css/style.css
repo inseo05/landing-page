@@ -64,6 +64,7 @@ body {
 /* 🔴 공통 🔴*/
 .title-text {
     height: 11.75rem;
+    text-align: center;
     align-items: center;
 }
 
@@ -71,8 +72,6 @@ body {
     font-family: var(--font-serif);
     font-weight: 600;
     font-size: 1.5rem;
-
-    text-align: center;
 
     margin-bottom: 0.5rem;
 
@@ -82,8 +81,6 @@ body {
     font-family: var(--font-main);
     font-weight: 500;
     font-size: 2.5rem;
-
-    text-align: center;
 }
 
 
@@ -194,6 +191,10 @@ body {
     width: 100%;
 
     background: linear-gradient(180deg, #F9FAFB 51.46%, #E0F3EF 68.77%, var(--brand-g-1) 100.03%) no-repeat center / cover;
+}
+
+.diff-text {
+    text-align: left;
 }
 
 .diff-container {
@@ -397,14 +398,131 @@ body {
 .mf-content {}
 
 .mf-text {
-    align-items: flex-start;
+    text-align: left;
 }
 
 .mf-subt {
     color: var(--dark-3);
 }
 
+/* 이 달의 꽃 사진+텍스트 */
+.mf-img-sec {
+    width: 100vw;
+    height: clamp(25rem, 41.6667vw, 40rem);
+    margin-left: calc(50% - 50vw);
+     background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.6) 40%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    url("../images/mf-bg1.png") no-repeat center / cover;
 
+    display: flex;
+    align-items: center;
+}
+
+.mf-img-content {
+    width: 100%;
+    max-width: 90rem;
+    height: 100%;
+
+    margin: 0 auto;
+    padding: 0 3.75rem;
+    display: flex;
+    flex-direction: column;
+    position:relative;
+    justify-content: center;
+
+    gap: 1.5rem;
+}
+
+.mf-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mf-img-title {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.eng-flower-name {
+    font-family: var(--font-serif);
+    font-size: 2.625rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #F7CED2;
+}
+
+.kor-flower-name {
+    font-family: var(--font-serif);
+    font-size: 4.375rem;
+    font-weight: 400;
+    color: var(--dark-1);
+}
+
+.flower-tag {
+    font-family: var(--font-main);
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #B97278;
+
+    display: flex;
+    gap:1.25rem;
+}
+
+.tag-name {
+    width: fit-content;
+    height: 2.25rem;
+    padding: 0 1.25rem;
+    border-radius: 999px;
+    background-color: #F7CED2;
+
+
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+
+}
+
+.flower-description {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 130%;
+    color: var(--dark-3);
+}
+
+/* 아래 점점점 */
+
+.pagination {
+    display: flex;
+    position:absolute;
+
+    gap: 16px;
+    justify-content: center;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.pagination button{
+    border-radius: 100px;
+    width: 0.75rem;
+    height: 0.75rem;
+
+    border: none;
+    background-color: var(--dark-4);
+}
+
+.pagination-dot.active {
+    background-color: var(--dark-1);
+}
 
 /* 🌸 animation */
 @media (hover: hover) {
