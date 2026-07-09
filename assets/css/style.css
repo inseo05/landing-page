@@ -63,17 +63,17 @@ body {
 /* -------- */
 /* 🔴 공통 🔴*/
 .title-text {
-    height: 11.75rem;
     text-align: center;
     align-items: center;
+    margin-bottom: 4.375rem;
 }
 
 .subtitle {
     font-family: var(--font-serif);
     font-weight: 600;
     font-size: 1.5rem;
-
     margin-bottom: 0.5rem;
+    text-align: center;
 
 }
 
@@ -81,6 +81,8 @@ body {
     font-family: var(--font-main);
     font-weight: 500;
     font-size: 2.5rem;
+
+    text-align: center;
 }
 
 
@@ -194,7 +196,7 @@ body {
 }
 
 .diff-text {
-    text-align: left;
+    height: fit-content;
 }
 
 .diff-container {
@@ -392,56 +394,96 @@ body {
     color: var(--brand-p-2);
 }
 
+/* 🟪❇️--- Monthly-Flower --- */
 
-/* 🟪❇️---Monthly-Flower --- */
+.Monthly-Flower {
+    width: 100%;
+    padding: 4.375rem 0;
+}
 
-.mf-content {}
+.mf-content {
+    height: 100%;
+}
 
 .mf-text {
-    text-align: left;
+    margin-bottom: 2.5rem;
 }
 
 .mf-subt {
     color: var(--dark-3);
+    text-align: left;
 }
 
-/* 이 달의 꽃 사진+텍스트 */
-.mf-img-sec {
-    width: 100vw;
+.mf-title {
+    text-align: left;
+}
+
+/* Swiper 전체 영역 */
+.mySwiper {
+    width: 100%;
     height: clamp(25rem, 41.6667vw, 40rem);
-    margin-left: calc(50% - 50vw);
-     background:
-    linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(255, 255, 255, 0.6) 40%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    url("../images/mf-bg1.png") no-repeat center / cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 각각의 슬라이드 */
+.mf-img-sec {
+    width: 100%;
+    height: 100%;
 
     display: flex;
     align-items: center;
+
+    background:
+        linear-gradient(to right,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0.6) 40%,
+            rgba(255, 255, 255, 0) 100%),
+        var(--mf-bg) no-repeat center / cover;
 }
 
+/* 카드별 배경 이미지 */
+.mf01 {
+    --mf-bg: url("../images/mf-bg1.png");
+}
+
+.mf02 {
+    --mf-bg: url("../images/mf-bg2.png");
+}
+
+.mf03 {
+    --mf-bg: url("../images/mf-bg3.png");
+}
+
+.mf04 {
+    --mf-bg: url("../images/mf-bg4.png");
+}
+
+.mf05 {
+    --mf-bg: url("../images/mf-bg5.png");
+}
+
+/* 슬라이드 안쪽 내용 영역 */
+/* 기존 .container와 같은 기준으로 맞춤 */
 .mf-img-content {
     width: 100%;
-    max-width: 90rem;
+    max-width: var(--container-width);
     height: 100%;
 
     margin: 0 auto;
-    padding: 0 3.75rem;
+    padding-left: var(--container-lr-padding);
+    padding-right: var(--container-lr-padding);
+
     display: flex;
     flex-direction: column;
-    position:relative;
     justify-content: center;
-
-    gap: 1.5rem;
 }
 
+/* 텍스트 묶음 */
 .mf-text-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .mf-img-title {
@@ -462,7 +504,7 @@ body {
     font-family: var(--font-serif);
     font-size: 4.375rem;
     font-weight: 400;
-    color: var(--dark-1);
+    color: var(--dark-2);
 }
 
 .flower-tag {
@@ -472,7 +514,8 @@ body {
     color: #B97278;
 
     display: flex;
-    gap:1.25rem;
+    gap: 1.25rem;
+    flex-wrap: wrap;
 }
 
 .tag-name {
@@ -482,11 +525,9 @@ body {
     border-radius: 999px;
     background-color: #F7CED2;
 
-
     display: inline-flex;
-    text-align: center;
     align-items: center;
-
+    justify-content: center;
 }
 
 .flower-description {
@@ -497,30 +538,76 @@ body {
     color: var(--dark-3);
 }
 
-/* 아래 점점점 */
+.mo-br{
+        display: none;
+    }
 
-.pagination {
-    display: flex;
-    position:absolute;
+/* 카드별 포인트 컬러 */
 
-    gap: 16px;
-    justify-content: center;
-    bottom: 1.25rem;
-    left: 50%;
-    transform: translateX(-50%);
-
+/* 2 */
+.mf02 .eng-flower-name,
+.mf02 .flower-tag {
+    color: #5F86A7;
 }
 
-.pagination button{
-    border-radius: 100px;
+.mf02 .tag-name {
+    background-color: #D0E3F2;
+}
+
+/* 3 */
+.mf03 .eng-flower-name,
+.mf03 .flower-tag {
+    color: #E67C34;
+}
+
+.mf03 .tag-name {
+    background-color: #F9D1A4;
+}
+
+/* 4 */
+.mf04 .eng-flower-name,
+.mf04 .flower-tag {
+    color: #4051A2;
+}
+
+.mf04 .tag-name {
+    background-color: #D0E3F2;
+}
+
+/* 5 */
+.mf05 .eng-flower-name,
+.mf05 .flower-tag {
+    color: #9077A1;
+}
+
+.mf05 .tag-name {
+    background-color: #D8CBDC;
+}
+
+/* Swiper pagination */
+.mySwiper .swiper-pagination {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.25rem;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.mySwiper .swiper-pagination-bullet {
     width: 0.75rem;
     height: 0.75rem;
+    margin: 0 !important;
 
-    border: none;
+    opacity: 1;
+    border-radius: 999px;
     background-color: var(--dark-4);
 }
 
-.pagination-dot.active {
+.mySwiper .swiper-pagination-bullet-active {
     background-color: var(--dark-1);
 }
 
@@ -543,6 +630,10 @@ body {
         max-width: 64rem;
         padding-left: 3.125rem;
         padding-right: 3.125rem;
+    }
+
+    .title-text {
+        margin-bottom: 2.5rem;
     }
 
     .hero {
@@ -572,10 +663,6 @@ body {
         padding: 0.38rem 1.2rem;
     }
 
-    .title-text {
-        height: 8.3125rem;
-
-    }
 
     .subtitle {
         font-size: 1rem;
@@ -583,6 +670,12 @@ body {
 
     .title {
         font-size: 1.5rem;
+    }
+
+    /* ---- 🔴difficult ---- */
+
+    .mf-text {
+        margin-bottom: 1.25rem;
     }
 
     .bubbles {
@@ -629,6 +722,37 @@ body {
 
         margin-bottom: 0.75rem;
     }
+
+    /* ---- 🔴Monthly Flower section ---- */
+
+    /* 텍스트 묶음 */
+    .mf-text-group {
+        gap: 1.5rem;
+    }
+
+    .mf-img-title {
+        gap: 0.625rem;
+    }
+
+    .eng-flower-name {
+        font-size: 1.5rem;
+    }
+
+    .kor-flower-name {
+        font-size: 2.875rem;
+    }
+
+    .flower-tag {
+        font-size: 1rem;
+    }
+
+    .tag-name {
+        height: 2rem;
+        padding: 0 1rem;
+    }
+
+    .flower-description {}
+
 }
 
 /* 🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱 */
@@ -643,8 +767,7 @@ body {
     }
 
     .title-text {
-        height: 8.3125rem;
-
+        margin-bottom: 2.5rem;
     }
 
     .subtitle {
@@ -672,7 +795,7 @@ body {
     }
 
     .hero-buttons {
-        gap:0.625;
+        gap: 0.625rem;
         margin-top: 0.625rem;
     }
 
@@ -684,6 +807,10 @@ body {
 
     .diff-title-br {
         display: inline;
+    }
+
+    .mf-text {
+        margin-bottom: 1.25rem;
     }
 
     .bubbles {
@@ -767,7 +894,7 @@ body {
         line-height: 130%;
     }
 
-    .benefit-mobile-img{
+    .benefit-mobile-img {
         height: auto;
     }
 
@@ -783,13 +910,54 @@ body {
     .card3 .benefit-mobile-img {
         width: 7.43755rem;
     }
-    
+
     .card2 .num {
         background-color: var(--brand-g-3);
     }
 
     .card2 .emphasis {
         color: var(--brand-g-3);
+    }
+
+    /* ---- 🔴Monthly Flower Section ---- */
+    .mf-img-content {
+        padding: 0 1.25rem;
+    }
+
+    /* 텍스트 그룹 */
+    .mf-text-group {
+        gap: 0.75rem;
+    }
+
+    .mf-img-title {
+        gap: 0.625rem;
+    }
+
+    .eng-flower-name {
+        font-size: 1.5rem;
+    }
+
+    .kor-flower-name {
+        font-size: 2.5rem;
+    }
+
+    .flower-tag {
+        font-size: 0.75rem;
+    }
+
+    .tag-name {
+        height: 1.5rem;
+        padding: 0 0.375rem;
+    }
+
+    .flower-description {}
+
+    .mo-br{
+        display: block;
+    }
+
+    .mo-br-no{
+        display: none;
     }
 
     /* 🌸 scroll animation */
