@@ -278,7 +278,7 @@ body {
 /* 🟪❇️--- benefit --- */
 .benefit {
     position: relative;
-    height: calc(var(--benefit-sticky-height) * 3);
+    height: calc(var(--benefit-sticky-height) * 4);
 }
 
 .benefit-desktop {
@@ -295,6 +295,7 @@ body {
     height: calc(var(--benefit-sticky-height) - 9.0625rem);
     padding-bottom: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     /* padding-bottom: var(--container-tb-padding); */
 }
@@ -445,22 +446,27 @@ body {
 /* 카드별 배경 이미지 */
 .mf01 {
     --mf-bg: url("../images/mf-bg1.png");
+    height: clamp(25rem, 58.5938vw, 40rem);
 }
 
 .mf02 {
     --mf-bg: url("../images/mf-bg2.png");
+    height: clamp(25rem, 58.5938vw, 40rem);
 }
 
 .mf03 {
     --mf-bg: url("../images/mf-bg3.png");
+    height: clamp(25rem, 58.5938vw, 40rem);
 }
 
 .mf04 {
     --mf-bg: url("../images/mf-bg4.png");
+    height: clamp(25rem, 58.5938vw, 40rem);
 }
 
 .mf05 {
     --mf-bg: url("../images/mf-bg5.png");
+    height: clamp(25rem, 58.5938vw, 40rem);
 }
 
 /* 슬라이드 안쪽 내용 영역 */
@@ -538,9 +544,9 @@ body {
     color: var(--dark-3);
 }
 
-.mo-br{
-        display: none;
-    }
+.mo-br {
+    display: none;
+}
 
 /* 카드별 포인트 컬러 */
 
@@ -611,6 +617,78 @@ body {
     background-color: var(--dark-1);
 }
 
+/* 🟪❇️--- plan --- */
+/* 타이틀 */
+.plan-subt{
+    color: var(--brand-p-3);
+}
+
+/* 플랜들 */
+.plan-content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:1.5rem;
+
+    width: 100%;
+    height: 37.125rem;
+}
+.standard-cont{
+    grid-row: span 2;
+}
+
+
+.plans{
+    width: 100%;
+    gap: 2.5rem;
+    border-radius: 1.25rem;
+    padding: 3.125rem 3.125rem;
+
+    background-color: #BBBBBB;
+}
+
+.plan-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* 플랜 텍스트 정렬 및 설정 */
+
+.fee{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.flower-num-text{
+    display: inline-flex;
+    align-items: center;
+}
+
+.flower-num-text::before{
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url("../icons/flower-icon.png") no-repeat center / contain;
+}
+
+
+
+/* 세부적인 달라지는 애들 */
+
+.bouquet {
+    width: 6.4375rem;
+    height: 13.875rem;
+    background: url("../icons/Bouquet-icon.png") no-repeat center / contain;
+    padding-bottom: 1.875rem;
+}
+
+.share{
+    width: 3.5rem;
+    height: 3.5rem;
+    background: url("../icons/share-icon.png") no-repeat center / contain;
+}   
+
+
 /* 🌸 animation */
 @media (hover: hover) {
     .hero-btn-outline:hover {
@@ -625,7 +703,11 @@ body {
     }
 }
 
+/* ==========반응형========== */
+
 @media (max-width: 1024px) {
+    /* ---- 🔴공통 ---- */
+
     .container {
         max-width: 64rem;
         padding-left: 3.125rem;
@@ -683,17 +765,15 @@ body {
     }
 
     .bub1 {
-        width: 27.1875rem;
+        width: 27.25rem;
     }
 
     .bub2 {
-        width: 22.43755rem;
-        align-self: flex-end;
+        width: 24.875rem;
     }
 
     .bub3 {
-        width: 22.5rem;
-        align-self: center;
+        width: 21.8125rem;
 
     }
 
@@ -727,7 +807,7 @@ body {
 
     /* 텍스트 묶음 */
     .mf-text-group {
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     .mf-img-title {
@@ -744,6 +824,7 @@ body {
 
     .flower-tag {
         font-size: 1rem;
+        gap: 1rem;
     }
 
     .tag-name {
@@ -758,7 +839,7 @@ body {
 /* 🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱 */
 
 @media (max-width: 768px) and (min-width: 360px) {
-    /* ---- 공용 ---- */
+    /* ---- 🟪공통 ---- */
 
     .container {
         max-width: 48rem;
@@ -778,7 +859,7 @@ body {
         font-size: 1.5rem;
     }
 
-    /* ---- 🔴hero ---- */
+    /* ---- 🟪hero ---- */
 
     .hero {
         height: 39.875rem;
@@ -803,7 +884,7 @@ body {
         font-size: 0.875rem;
     }
 
-    /* ---- 🔴diffuculties ---- */
+    /* ---- 🟪diffuculties ---- */
 
     .diff-title-br {
         display: inline;
@@ -819,15 +900,15 @@ body {
     }
 
     .bub1 {
-        width: 18.1875rem;
+        width: 25.625rem;
     }
 
     .bub2 {
-        width: 14.0625rem;
+        width: 20.25rem;
     }
 
     .bub3 {
-        width: 13.75rem;
+        width: 20.5625rem;
 
     }
 
@@ -841,7 +922,11 @@ body {
         line-height: 160%;
     }
 
-    /* ---- 🔴benefit ---- */
+    /* ---- 🟪benefit ---- */
+    .benefit {
+        height: auto;
+    }
+
     .benefit-desktop {
         display: none;
     }
@@ -919,7 +1004,7 @@ body {
         color: var(--brand-g-3);
     }
 
-    /* ---- 🔴Monthly Flower Section ---- */
+    /* ---- 🟪Monthly Flower Section ---- */
     .mf-img-content {
         padding: 0 1.25rem;
     }
@@ -956,63 +1041,64 @@ body {
         padding: 0.25rem 0.25rem;
     }
 
-    .mo-br{
+    .mo-br {
         display: block;
     }
 
-    .mo-br-no{
+    .mo-br-no {
         display: none;
     }
+}
 
-    /* 🌸 scroll animation */
-    /* benefit 섹션임 */
-    /* 🌸 scroll animation */
-    .scroll-up {
-        opacity: 0;
-        transform: translateY(3rem);
-        transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-    }
 
-    .scroll-up.is-show {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* 🌸 scroll animation */
+/* benefit 섹션임 */
+/* 🌸 scroll animation */
+.scroll-up {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
 
-    .delay-1 {
-        transition-delay: 0.2s;
-    }
+.scroll-up.is-show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-    .delay-2 {
-        transition-delay: 0.3s;
-    }
+.delay-1 {
+    transition-delay: 0.2s;
+}
 
-    .delay-3 {
-        transition-delay: 0.4s;
-    }
+.delay-2 {
+    transition-delay: 0.3s;
+}
 
-    .delay-4 {
-        transition-delay: 0.8s;
-    }
+.delay-3 {
+    transition-delay: 0.4s;
+}
 
-    /* 🌸 text-focus-in animation */
-    .text-focus-in {
-        opacity: 0;
+.delay-4 {
+    transition-delay: 0.8s;
+}
+
+/* 🌸 text-focus-in animation */
+.text-focus-in {
+    opacity: 0;
+    filter: blur(12px);
+}
+
+.text-focus-in.is-show {
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@keyframes text-focus-in {
+    0% {
         filter: blur(12px);
+        opacity: 0;
     }
 
-    .text-focus-in.is-show {
-        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-    }
-
-    @keyframes text-focus-in {
-        0% {
-            filter: blur(12px);
-            opacity: 0;
-        }
-
-        100% {
-            filter: blur(0px);
-            opacity: 1;
-        }
+    100% {
+        filter: blur(0px);
+        opacity: 1;
     }
 }
