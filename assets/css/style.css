@@ -278,7 +278,7 @@ body {
 /* 🟪❇️--- benefit --- */
 .benefit {
     position: relative;
-    height: calc(var(--benefit-sticky-height) * 4);
+    height: calc(var(--benefit-sticky-height) * 5);
 }
 
 .benefit-desktop {
@@ -619,28 +619,32 @@ body {
 
 /* 🟪❇️--- plan --- */
 /* 타이틀 */
-.plan-subt{
+.plan-container {
+    padding-bottom: 4.375rem;
+}
+
+.plan-subt {
     color: var(--brand-p-3);
 }
 
 /* 플랜들 */
-.plan-content{
+.plan-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:1.5rem;
+    gap: 1.5rem;
 
     width: 100%;
     grid-auto-rows: 17.90625rem;
 }
 
-.standard-cont{
+.standard-cont {
     grid-row: span 2;
 }
 
 
-.plans{
+.plans {
     width: 100%;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -650,7 +654,7 @@ body {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
 }
 
-.standard-bottom{
+.standard-bottom {
     display: flex;
     flex-direction: column;
     gap: 3.125rem;
@@ -662,13 +666,13 @@ body {
     align-items: end;
 }
 
-.plan-bottom-title{
+.plan-bottom-title {
     display: flex;
     flex-direction: column;
     gap: 0.875rem;
 }
 
-.standard-top{
+.standard-top {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -676,17 +680,23 @@ body {
 
 }
 
-.sub-btn{
+.sub-btn {
     width: 100%;
     height: 3.75rem;
     text-align: center;
     border: none;
     border-radius: 0.875rem;
     background-color: var(--brand-p-2);
-    
+
     color: var(--light-1);
     font-size: 1.5rem;
-    font-weight: 500;
+    fon t-weight: 500;
+
+    transition: all 0.3s;
+}
+
+.sub-btn:hover {
+    background-color: #e26f73;
 }
 
 /* 플랜 텍스트 정렬 및 설정 */
@@ -700,53 +710,53 @@ body {
     border-radius: 0.875rem;
 }
 
-.recommand p{
+.recommand p {
     font-size: 1rem;
     font-weight: 700;
     color: var(--brand-p-2);
 
 }
 
-.plan-title {
+.plan-name-title {
     font-weight: 700;
     font-size: 2.25rem;
     color: var(--dark-2);
 }
 
-.standard-cont .plan-title{
+.standard-cont .plan-title {
     font-size: 3rem;
 }
 
-.fee-sale{
+.fee-sale {
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--brand-p-2);
 }
 
-.fee-origin{
+.fee-origin {
     font-size: 0.875rem;
     font-weight: 400;
     color: var(--light-3);
     text-decoration: line-through;
 }
 
-.flower-num{
+.flower-num {
     font-size: 1rem;
     font-weight: 400;
     color: var(--dark-2);
 }
 
-.fee{
+.fee {
     display: flex;
     gap: 0.5rem;
 }
 
-.flower-num-text{
+.flower-num-text {
     display: inline-flex;
     align-items: center;
 }
 
-.flower-num-text::before{
+.flower-num-text::before {
     content: "";
     width: 1.5rem;
     height: 1.5rem;
@@ -764,14 +774,248 @@ body {
     padding-bottom: 1.875rem;
 }
 
-.share{
+.share {
     width: 3.5rem;
     height: 3.5rem;
     background: url("../icons/share-icon.png") no-repeat center / contain;
-}   
+    transition: transform 0.5 ease;
+}
+
+.share:hover {
+    transform: translateY(-0.2rem);
+}
 
 
-/* 🌸 animation 🌸 */
+/* 🟪❇️--- review --- */
+.review {
+    background: url(../images/review-bg.png) no-repeat center / cover;
+    width: 100%;
+    height: 60.5625rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rev-text {
+    margin-bottom: 2.5rem;
+}
+
+.rev-count-wrap {
+    display: flex;
+    align-items: flex-end;
+    font-size: 3.75rem;
+    font-weight: 700;
+    gap: 0.625rem;
+}
+
+.rev-count-wrap+p {
+    font-size: 1.125rem;
+    color: var(--dark-4);
+}
+
+.logo-text {
+    font-family: serif;
+    font-weight: 800;
+}
+
+.rev-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-count {
+    font-size: 6.25rem;
+    font-weight: 700;
+    display: inline-block;
+    /* min-width: 5ch; */
+}
+
+.rev-count-wrap {
+    margin-bottom: 1.5rem;
+}
+
+.review-card {
+    display: flex;
+    width: 32.5rem;
+    height: 19rem;
+
+    background-color: var(--light-1);
+    border: 0.125rem solid var(--light-2);
+    border-radius: 1.25rem;
+    padding: 1.5rem 1.5rem;
+
+    gap: 1.5rem;
+}
+
+.rev-img {
+    width: 100%;
+    height: 100%
+}
+
+.rev01 {
+    background: url(../images/review-img1.png) no-repeat center / cover;
+}
+
+.rev02 {
+    background: url(../images/review-img2.png) no-repeat center / cover;
+}
+
+.rev03 {
+    background: url(../images/review-img3.png) no-repeat center / cover;
+}
+
+.rev04 {
+    background: url(../images/review-img4.png) no-repeat center / cover;
+}
+
+.rev-text-cont {
+    width: 100%;
+    height: 100%;
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: var(--dark-1);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+.rev-top-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rev-bottom-cont {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 0.75rem;
+    color: var(--dark-2);
+}
+
+.rev-mark {
+    background-color: var(--light-2);
+    border-radius: 0.25rem;
+    width: 3.5625rem;
+    height: 1.25rem;
+    text-align: center;
+}
+
+/* 스와이퍼 */
+
+.reviewSwiper {
+    width: 100%;
+    padding: 1rem 0 3rem;
+    overflow: visible;
+}
+
+.reviewSwiper .swiper-wrapper {
+    transition-timing-function: linear;
+}
+
+.reviewSwiper .swiper-slide {
+    width: 32.5rem;
+    flex-shrink: 0;
+}
+
+.reviewSwiper .swiper-scrollbar {
+    display: none;
+}
+
+/* 🟪❇️--- shipping --- */
+
+
+.ship-text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ship-subt {
+    color: var(--brand-g-3);
+}
+
+.ship-cards {
+    width: 100%;
+    height: 16.125rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.ship-card {
+    width: 100%;
+    height: 100%;
+    max-width: 19.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+
+    gap: 1.25rem;
+    padding: 1.875rem 1.25rem;
+    border-radius: 1.25rem;
+
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+}
+
+
+.ship-icon {
+    width: 3.625rem;
+    height: 3.625rem;
+}
+
+.ship-icon1 {
+    background: url(../icons/shipping-icon1.png) no-repeat center / cover;
+}
+
+.ship-icon2 {
+    background: url(../icons/shipping-icon2.png) no-repeat center / cover;
+}
+
+.ship-icon3 {
+    background: url(../icons/shipping-icon3.png) no-repeat center / cover;
+}
+
+.ship-icon4 {
+    background: url(../icons/shipping-icon4.png) no-repeat center / cover;
+}
+
+
+.ship-card-text-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.ship-card-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.ship-card-text {
+    color: var(--dark-2);
+    font-weight: 300;
+    font-size: 1.125;
+    line-height: 130%;
+}
+
+.ship-card-text strong {
+    color: var(--brand-g-3);
+    font-weight: 400;
+}
+
+
+
+/* 끝 🌸 animation 🌸 */
 @media (hover: hover) {
     .hero-btn-outline:hover {
         color: var(--light-1);
@@ -914,13 +1158,45 @@ body {
         padding: 0 1rem;
     }
 
-    /* ---- 🔴Subscription ---- */
-    
+    /* ---- 🔴subscription ---- */
+    .plan-container {
+        padding-bottom: 2.5rem;
+    }
+
 
     /* 플랜들 */
-.plan-content{
-    grid-template-columns: repeat(1, 1fr);
+    .plan-content {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+
     
+/* 🔴--- shipping --- */
+
+
+.ship-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.ship-card {
+    width: 100%;
+    gap: 1rem;
+    /* padding: 1.875rem 1.25rem; */
+}
+
+.ship-card-text-cont {
+    gap: 1rem;
+}
+
+.ship-card-title {
+    font-size: 1.25rem;
+}
+
+.ship-card-text {
+    font-size: 1rem;
 }
 
 }
@@ -1137,7 +1413,119 @@ body {
     .mo-br-no {
         display: none;
     }
+
+    /* ---- 🟪subscription ---- */
+
+    .plan-container {
+        padding-bottom: 2.5rem;
+    }
+
+    /* 🟪--- review --- */
+
+    .review {
+        height: 32.8125rem;
+    }
+
+    .rev-text {
+        margin-bottom: 0.875rem;
+    }
+
+    .rev-count-wrap {
+        font-size: 1.875rem;
+    }
+
+    .rev-count-wrap+p {
+        font-size: 0.875rem;
+    }
+
+    .rev-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-count {
+        font-size: 3.75rem;
+        font-weight: 700;
+        display: inline-block;
+        /* min-width: 5ch; */
+    }
+
+    .rev-count-wrap {
+        margin-bottom: 1.5rem;
+    }
+
+    .reviewSwiper .review-card {
+    display: flex;
+    flex-direction: column;
+    width: 11.75rem;
+    
+    border-radius: 1.25rem;
+    padding: 0.75rem 0.75rem;
+
+    gap: 0.75rem;
+    }
+
+
+    .rev-img {
+        height: 100%;
+    }
+
+
+    .rev-text-cont {
+        padding-top: 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .rev-top-cont {
+        height: 100%;
+        gap: 0.5rem;
+    }
+
+    .rev-bottom-cont {
+        display: flex;
+        justify-content: space-between;
+
+        font-size: 0.75rem;
+        color: var(--dark-2);
+    }
+
+    .rev-mark {
+        background-color: var(--light-2);
+        border-radius: 0.25rem;
+        width: 3.5625rem;
+        height: 1.25rem;
+        text-align: center;
+    }
+
+/* 🟪--- shipping --- */
+
+
+.ship-cards {
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    gap: 0.625rem;
 }
+
+.ship-card {
+    gap: 1rem;
+    /* padding: 1.875rem 1.25rem; */
+}
+
+.ship-card-text-cont {
+    gap: 1rem;
+}
+
+.ship-card-title {
+    font-size: 1.125rem;
+}
+
+.ship-card-text {
+    font-size: 0.875rem;
+}
+
+}
+
 
 
 /* 🌸 scroll animation */
