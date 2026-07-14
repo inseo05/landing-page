@@ -241,11 +241,11 @@ const mfSwiper = new Swiper(".mySwiper", {
 // ✅ Review Swiper
 const reviewSwiper = new Swiper(".reviewSwiper", {
     slidesPerView: "auto",
-    spaceBetween: 24,
+    spaceBetween: 20,
     loop: true,
 
     speed: 0,
-    // speed: 5000,
+    // speed: 6000,
 
     autoplay: {
         delay: 0,
@@ -263,4 +263,16 @@ const reviewSwiper = new Swiper(".reviewSwiper", {
         el: ".reviewSwiper .swiper-scrollbar",
         draggable: true,
     },
+
+    breakpoints: {
+        768:{
+            spaceBetween: 20
+        },
+        1024:{
+            spaceBetween: 20
+        },
+        1920:{
+            spaceBetween: 24
+        },
+    }
 });
