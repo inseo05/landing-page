@@ -1952,6 +1952,11 @@ body {
     height: 0.75rem;
 }
 
+/* ---🟪header ---  */
+.nav{
+    display: none;
+}
+
 }
 
 
