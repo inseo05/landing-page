@@ -16,22 +16,61 @@
 
 <body>
   <header class="header">
-        <div class="container header-container">
-            <p class="logo">Bloomy</p>
-            <nav>
-              <ul class="nav">
-                <li>Flowers</li>
-                <li>Plans</li>
-                <li>Reviews</li>
-                <li><button>로그인</button></li>
-              </ul>
-              <!-- 모바일 메뉴 넣기 -->
-               <button class="mo-nav">
-                <img src="./assets/icons/menu-icon.png" alt="메뉴" class="menu-icon">
-               </button>
-            </nav>
-        </div>
-    </header>
+    <div class="container header-container">
+      <p class="logo">Bloomy</p>
+      <nav>
+        <ul class="nav">
+          <li>Flowers</li>
+          <li>Plans</li>
+          <li>Reviews</li>
+          <button>로그인</button>
+        </ul>
+        <!-- 모바일 메뉴 넣기 -->
+        <button class="mo-nav">
+          <img src="./assets/icons/menu-icon.png" alt="메뉴" class="menu-icon">
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 모바일 메뉴 바깥 어두운 배경 -->
+  <div class="menu-overlay"></div>
+
+  <!-- 모바일 사이드 메뉴 -->
+  <div class="mobile-menu">
+    <button class="menu-close" type="button" aria-label="메뉴 닫기">
+      <img src="./assets/icons/close-icon.png" alt="메뉴닫기">
+    </button>
+
+    <div class="mobile-login">
+      <p>로그인 해주세요</p>
+      <button type="button">로그인</button>
+    </div>
+
+    <ul class="mobile-menu-list">
+      <li>
+        <a href="#">
+          Flowers
+          <span class="menu-arrow"></span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          Plans
+          <span class="menu-arrow"></span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          Reviews
+          <span class="menu-arrow"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
 
   <!-- ✅hero 섹션 -->
   <main>
@@ -696,7 +735,7 @@
               <div class="photo-texts">
                 <h4 class="photo-title">#거실</h4>
                 <p class="photo-text"> 가장 오래 머무는 거실에 <br class="tablet-br">꽃 한 다발로<br class="tablet-br-none">
-                화사한 분위기를 <br class="tablet-br">채워보세요.</p>
+                  화사한 분위기를 <br class="tablet-br">채워보세요.</p>
               </div>
             </div>
 
@@ -705,20 +744,20 @@
               <div class="photo-texts">
                 <h4 class="photo-title">#침대 옆</h4>
                 <p class="photo-text"> 하루의 시작과 끝을 함께하는 <br class="tablet-br">침실에<br class="tablet-br-none">
-                꽃으로 부드러운 <br class="tablet-br">생기를 더해보세요.</p>
+                  꽃으로 부드러운 <br class="tablet-br">생기를 더해보세요.</p>
               </div>
             </div>
 
           </div>
 
           <div class="photo-column photo-column3">
-            
+
             <div class="interior-content">
               <img src="./assets/images/interior04.png" alt="인테리어이미지">
               <div class="photo-texts">
                 <h4 class="photo-title">#선반 위</h4>
                 <p class="photo-text">작은 선반 위에도 꽃 한 송이의<br>
-                존재감으로 공간이 <br class="tablet-br">달라질 수 있어요.</p>
+                  존재감으로 공간이 <br class="tablet-br">달라질 수 있어요.</p>
               </div>
             </div>
 
@@ -735,7 +774,7 @@
       </div>
     </section>
 
-    
+
 
     <!-- 구독 유도 섹션 -->
     <section class="cta">
@@ -746,7 +785,7 @@
             당신의 일상에 꽃을 들여보세요
           </h3>
           <button class="cta-btn">지금 구독 시작하기</button>
-          
+
         </div>
       </div>
     </section>
@@ -771,10 +810,11 @@
 
         <div class="footer-second-column">
           <p>상호: Bloomy 대표: 성인서 대표전화: 0507-0000-0000</p>
-          <p>주소: 03700 인천광역시 남동구 인주대로 593 
-            <br>사업자등록번호: 000-00-00000 [사업자정보확인]</p>
+          <p>주소: 03700 인천광역시 남동구 인주대로 593
+            <br>사업자등록번호: 000-00-00000 [사업자정보확인]
+          </p>
           <p>
-            통신판매업 신고번호: 제 2026-인천남동구-0000 호 
+            통신판매업 신고번호: 제 2026-인천남동구-0000 호
             <br class="footer-tablet-br">
             개인정보보호책임자: 유무
           </p>
@@ -784,7 +824,7 @@
         </div>
 
       </div>
-      
+
       <div class="footer-copyright">
         Copyright <strong>© Bloomy</strong> All rights reserved. Designed by Bloomy.
       </div>

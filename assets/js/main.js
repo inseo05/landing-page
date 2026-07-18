@@ -276,3 +276,24 @@ const reviewSwiper = new Swiper(".reviewSwiper", {
         },
     }
 });
+
+const menuOpenButton = document.querySelector(".mo-nav");
+const menuCloseButton = document.querySelector(".menu-close");
+const mobileMenu = document.querySelector(".mobile-menu");
+const menuOverlay = document.querySelector(".menu-overlay");
+
+function openMenu() {
+  mobileMenu.classList.add("open");
+  menuOverlay.classList.add("open");
+  document.body.classList.add("menu-open");
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove("open");
+  menuOverlay.classList.remove("open");
+  document.body.classList.remove("menu-open");
+}
+
+menuOpenButton.addEventListener("click", openMenu);
+menuCloseButton.addEventListener("click", closeMenu);
+menuOverlay.addEventListener("click", closeMenu);

@@ -126,6 +126,29 @@ body {
     font-size: 1.125rem;
     font-weight: 300;
     align-items: center;
+    cursor: default;
+}
+
+.nav li {
+    position: relative;
+}
+
+.nav li::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 0;
+    height: 1px;
+    background-color: var(--dark-1);
+
+    transition: width 0.3s;
+}
+
+.nav li:hover::after{
+    width: 100%;
 }
 
 .nav button {
@@ -133,8 +156,15 @@ body {
     color: var(--light-1);
     width: 5rem;
     height: 1.875rem;
+    border: none;
     border-radius: 0.625rem;
+    transition: background-color 0.3s;
 }
+
+.nav button:hover {
+    background-color: var(--dark-2);
+}
+
 
 /* 🟪❇️--- hero --- */
 .hero {
@@ -783,6 +813,9 @@ body {
     font-weight: 400;
     color: var(--light-3);
     text-decoration: line-through;
+
+    display: flex;
+    align-items: flex-end;
 }
 
 .flower-num {
@@ -961,7 +994,7 @@ body {
 .reviewSwiper {
     width: 100%;
     padding: 1rem 0 3rem;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .reviewSwiper .swiper-wrapper {
@@ -1191,6 +1224,7 @@ body {
     line-height: 140%;
     font-weight: 500;
 
+    border: none;
     border-radius: 1.25rem;
     padding: 0.75rem 2.5rem;
 
@@ -1759,6 +1793,10 @@ body {
         height: 32.8125rem;
     }
 
+    .rev-container {
+        padding-top: var(--container-tb-padding);
+    }
+
     .rev-text {
         margin-bottom: 0.875rem;
     }
@@ -1981,16 +2019,135 @@ body {
     height: 2.5rem;
 }
 
+/* ---모바일 메뉴 --- */
+  /* 기존 화면을 어둡게 만드는 영역 */
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+      opacity 0.4s,
+      visibility 0.4s;
+  }
+
+  /* 오른쪽에서 나오는 메뉴 */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1600;
+
+    width: 50%;
+    min-width: 18.75rem;
+    height: 100vh;
+
+    background-color: var(--light-1);
+
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+  }
+
+  /* 메뉴가 열린 상태 */
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  /* 어두운 배경이 보이는 상태 */
+  .menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* 메뉴가 열렸을 때 배경 스크롤 막기 */
+  body.menu-open {
+    overflow: hidden;
+  }
 
 
+  /* X 닫기 버튼 */
+  .menu-close {
+    position: absolute;
+    top: 0.8125rem;
+    right: 1.25rem;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+  }
+
+  .menu-close img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
 
 
+  /* 로그인 영역 */
+  .mobile-login {
+    padding: 12.5rem 2.5rem 3.75rem;
+    border-bottom: 1px solid var(--light-2);
+  }
+
+  .mobile-login p {
+    margin-bottom: 1.5rem;
+
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  .mobile-login button {
+    padding: 0.625rem 1.25rem;
+
+    border: none;
+    border-radius: 1rem;
+
+    color: var(--light-1);
+    background-color: var(--dark-1);
+
+    font-size: 1rem;
+  }
 
 
+  /* 메뉴 목록 */
+  .mobile-menu-list li {
+    border-bottom: 1px solid var(--light-2);
+  }
+
+  .mobile-menu-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2.5rem;
+
+    color: var(--dark-1);
+    font-size: 1.75rem;
+    text-decoration: none;
+  }
 
 
+  /* 오른쪽 화살표 */
+  .menu-arrow {
+    width: 1rem;
+    height: 1rem;
+
+    border-top: 0.1875rem solid var(--dark-1);
+    border-right: 0.1875rem solid var(--dark-1);
+
+    transform: rotate(45deg);
+  }
 }
-
 
 
 /* 🌸 scroll animation */
