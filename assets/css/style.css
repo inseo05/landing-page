@@ -1271,6 +1271,12 @@ body {
     display: none;
 }
 
+/* --- header --- */
+.mo-nav {
+    display: none;
+}
+
+
 
 /* 끝 🌸 animation 🌸 */
 @media (hover: hover) {
@@ -1953,9 +1959,35 @@ body {
 }
 
 /* ---🟪header ---  */
+.header{
+    height: 3.75rem;
+}
+
 .nav{
     display: none;
 }
+
+.mo-nav {
+    display: block;
+    
+    border: none;
+    outline: none;
+    background-color: inherit;
+}
+
+
+.mo-nav img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+
+
+
+
+
+
+
 
 }
 

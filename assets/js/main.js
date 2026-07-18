@@ -244,8 +244,8 @@ const reviewSwiper = new Swiper(".reviewSwiper", {
     spaceBetween: 20,
     loop: true,
 
-    speed: 0,
-    // speed: 6000,
+    // speed: 0,
+    speed: 6000,
 
     autoplay: {
         delay: 0,
