@@ -159,12 +159,19 @@ body {
     border: none;
     border-radius: 0.625rem;
     transition: background-color 0.3s;
+
+    font-size: 1.125rem;
+    font-weight: 300;
 }
 
 .nav button:hover {
     background-color: var(--dark-2);
 }
 
+.menu-overlay,
+.mobile-menu {
+    display: none;
+}
 
 /* 🟪❇️--- hero --- */
 .hero {
@@ -196,10 +203,10 @@ body {
 }
 
 .hero-subtitle {
-    margin-bottom: 0.625rem;
+    margin-bottom: 1rem;
     font-family: var(--font-serif);
-    font-weight: 600;
-    font-size: 1.125rem;
+    font-weight: 500;
+    font-size: 1.5rem;
     text-shadow: var(--shadow);
 
 }
@@ -521,27 +528,27 @@ body {
 /* 카드별 배경 이미지 */
 .mf01 {
     --mf-bg: url("../images/mf-bg1.png");
-    height: clamp(25rem, 58.5938vw, 40rem);
+    /* height: clamp(25rem, 58.5938vw, 40rem); */
 }
 
 .mf02 {
     --mf-bg: url("../images/mf-bg2.png");
-    height: clamp(25rem, 58.5938vw, 40rem);
+    /* height: clamp(25rem, 58.5938vw, 40rem); */
 }
 
 .mf03 {
     --mf-bg: url("../images/mf-bg3.png");
-    height: clamp(25rem, 58.5938vw, 40rem);
+    /* height: clamp(25rem, 58.5938vw, 40rem); */
 }
 
 .mf04 {
     --mf-bg: url("../images/mf-bg4.png");
-    height: clamp(25rem, 58.5938vw, 40rem);
+    /* height: clamp(25rem, 58.5938vw, 40rem); */
 }
 
 .mf05 {
     --mf-bg: url("../images/mf-bg5.png");
-    height: clamp(25rem, 58.5938vw, 40rem);
+    /* height: clamp(25rem, 58.5938vw, 40rem); */
 }
 
 /* 슬라이드 안쪽 내용 영역 */
@@ -613,7 +620,7 @@ body {
 
 .flower-description {
     font-family: var(--font-main);
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 300;
     line-height: 130%;
     color: var(--dark-3);
@@ -819,7 +826,13 @@ body {
 }
 
 .flower-num {
-    font-size: 1rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--dark-2);
+}
+
+.plan-name-description {
+    font-size: 1.125rem;
     font-weight: 400;
     color: var(--dark-2);
 }
@@ -962,7 +975,7 @@ body {
     justify-content: space-between;
 
     color: var(--dark-1);
-    font-size: 1rem;
+    font-size: 18/16rem;
     font-weight: 400;
     line-height: 140%;
 }
@@ -971,6 +984,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+.rev-name {
+    font-size: 0.875rem;
 }
 
 .rev-bottom-cont {
@@ -1089,7 +1106,7 @@ body {
 .ship-card-text {
     color: var(--dark-2);
     font-weight: 300;
-    font-size: 1.125;
+    font-size: 1.25rem;
     line-height: 130%;
 }
 
@@ -1235,6 +1252,8 @@ body {
 
     width: fit-content;
     align-self: flex-start;
+
+    transition: background-color 0.3s;
 }
 
 
@@ -1243,6 +1262,10 @@ body {
     width: 1.5rem;
     height: 1.5rem;
     background: url(../icons/right-allow-icon.png) no-repeat center / contain;
+}
+
+.cta-btn:hover{
+    background-color: var(--dark-2);
 }
 
 /* --- 🟪🟩footer --- */
@@ -1453,6 +1476,10 @@ body {
     .tag-name {
         height: 2rem;
         padding: 0 1rem;
+    }
+
+    .flower-description{
+        font-size: 1rem;
     }
 
     /* ---- 🔴subscription ---- */
@@ -2036,6 +2063,12 @@ body {
       visibility 0.4s;
   }
 
+  @media (max-width: 768px) and (min-width: 360px) {
+    .menu-overlay,
+    .mobile-menu {
+        display: block;
+    }
+
   /* 오른쪽에서 나오는 메뉴 */
   .mobile-menu {
     position: fixed;
@@ -2074,7 +2107,7 @@ body {
   .menu-close {
     position: absolute;
     top: 0.8125rem;
-    right: 1.25rem;
+    right: 2.5rem;
 
     width: 2.5rem;
     height: 2.5rem;
@@ -2200,4 +2233,5 @@ body {
         filter: blur(0px);
         opacity: 1;
     }
+}
 }
