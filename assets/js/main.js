@@ -14,6 +14,7 @@ const observer = new IntersectionObserver((entries) => {
 scrollItems.forEach((item) => {
     observer.observe(item);
 });
+
 // ✅ benefit sticky 장면 전환
 const benefitSection = document.querySelector(".benefit");
 const benefitSticky = document.querySelector(".benefit-sticky");
@@ -175,7 +176,7 @@ window.addEventListener("load", syncBenefitByScroll);
 
 syncBenefitByScroll();
 
-//-----------// ✅ 리뷰 숫자 카운트 애니메이션
+//✅ 리뷰 숫자 카운트 애니메이션
 const reviewCount = document.querySelector(".review-count");
 const reviewSection = document.querySelector(".review");
 
@@ -265,35 +266,113 @@ const reviewSwiper = new Swiper(".reviewSwiper", {
     },
 
     breakpoints: {
-        768:{
+        768: {
             spaceBetween: 20
         },
-        1024:{
+        1024: {
             spaceBetween: 20
         },
-        1920:{
+        1920: {
             spaceBetween: 24
         },
     }
 });
 
+// ✅ 모바일 메뉴
 const menuOpenButton = document.querySelector(".mo-nav");
 const menuCloseButton = document.querySelector(".menu-close");
 const mobileMenu = document.querySelector(".mobile-menu");
 const menuOverlay = document.querySelector(".menu-overlay");
 
 function openMenu() {
-  mobileMenu.classList.add("open");
-  menuOverlay.classList.add("open");
-  document.body.classList.add("menu-open");
+    mobileMenu.classList.add("open");
+    menuOverlay.classList.add("open");
+    document.body.classList.add("menu-open");
 }
 
 function closeMenu() {
-  mobileMenu.classList.remove("open");
-  menuOverlay.classList.remove("open");
-  document.body.classList.remove("menu-open");
+    mobileMenu.classList.remove("open");
+    menuOverlay.classList.remove("open");
+    document.body.classList.remove("menu-open");
 }
 
 menuOpenButton.addEventListener("click", openMenu);
 menuCloseButton.addEventListener("click", closeMenu);
 menuOverlay.addEventListener("click", closeMenu);
+
+// ✅ 모바일 Interior 사진 크기 변경
+const interiorItems = [
+    ...document.querySelectorAll(".interior-content")
+];
+
+let interiorAnimationFrame;
+
+function updateInteriorPhoto() {
+    if (interiorItems.length === 0) return;
+
+    // PC에서는 스크롤 확대 효과 제거
+    if (window.innerWidth > 768) {
+        interiorItems.forEach(function (item) {
+            item.classList.remove("is-active");
+        });
+
+        return;
+    }
+
+    // 화면 중앙 위치
+    const viewportCenter = window.innerHeight / 2;
+
+    let closestItem = null;
+    let closestDistance = Infinity;
+
+    interiorItems.forEach(function (item) {
+        const rect = item.getBoundingClientRect();
+
+        // 현재 화면에 보이지 않는 사진은 제외
+        const isVisible =
+            rect.bottom > 0 &&
+            rect.top < window.innerHeight;
+
+        if (!isVisible) return;
+
+        const itemCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(viewportCenter - itemCenter);
+
+        if (distance < closestDistance) {
+            closestDistance = distance;
+            closestItem = item;
+        }
+    });
+
+    interiorItems.forEach(function (item) {
+        item.classList.toggle(
+            "is-active",
+            item === closestItem
+        );
+    });
+}
+
+function requestInteriorUpdate() {
+    cancelAnimationFrame(interiorAnimationFrame);
+
+    interiorAnimationFrame =
+        requestAnimationFrame(updateInteriorPhoto);
+}
+
+window.addEventListener(
+    "scroll",
+    requestInteriorUpdate,
+    { passive: true }
+);
+
+window.addEventListener(
+    "resize",
+    requestInteriorUpdate
+);
+
+window.addEventListener(
+    "load",
+    requestInteriorUpdate
+);
+
+updateInteriorPhoto();
