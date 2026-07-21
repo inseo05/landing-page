@@ -448,6 +448,10 @@ body {
     color: var(--brand-g-3);
 }
 
+.benefit-second .benefit-img {
+    width: 100%;/
+}
+
 .benefit-img {
     width: clamp(21.25rem, 34.7222vw, 39.451875rem);
     max-width: 31.5rem;
