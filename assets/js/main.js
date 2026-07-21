@@ -2,7 +2,7 @@
 const plans = document.querySelectorAll('.plans');
 const mobileMedia = window.matchMedia('(max-width: 768px)');
 
-const scrollItems = document.querySelectorAll('.scroll-up, .text-focus-in');
+const scrollItems = document.querySelectorAll('.scroll-up, .text-focus-in, .mobile-scroll-up');
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

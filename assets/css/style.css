@@ -448,9 +448,6 @@ body {
     color: var(--brand-g-3);
 }
 
-.benefit-second .benefit-img {
-    width: 100%;/
-}
 
 .benefit-img {
     width: clamp(21.25rem, 34.7222vw, 39.451875rem);
@@ -1914,6 +1911,17 @@ body {
     .share {
         width: 2.625rem;
         height: 2.625rem;
+    }
+
+    .mobile-scroll-up {
+        opacity: 0;
+        transform: translateY(3rem);
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    }
+
+    .mobile-scroll-up.is-show {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     /* 🟪--- review --- */
