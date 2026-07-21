@@ -1837,6 +1837,8 @@ body {
 
     /* ---- 🟪subscription ---- */
     .plans {
+        padding: 2.8rem 2.5rem;
+
         transition: none;
     }
 
@@ -2048,7 +2050,7 @@ body {
         height: auto;
         display: flex;
         flex-direction: column;
-        gap: 0.625rem;
+        gap: 1.5rem;
     }
 
     /* 모바일에서 컬럼 묶음만 제거 */
@@ -2312,7 +2314,7 @@ body {
     .mobile-login p {
         margin-bottom: 0.75rem;
 
-        font-size: 1.125rem;
+        font-size: 1.25rem;
         font-weight: 500;
     }
 
@@ -2326,7 +2328,7 @@ body {
         color: var(--light-1);
         background-color: var(--dark-1);
 
-        font-size: 0.75rem;
+        font-size: 0.875rem;
     }
 
 
@@ -2343,7 +2345,7 @@ body {
         padding: 1.25rem;
 
         color: var(--dark-1);
-        font-size: 0.875rem;
+        font-size: 1rem;
         font-weight: 400;
         text-decoration: none;
     }
