@@ -1,4 +1,7 @@
 // ✅ 일반 스크롤 애니메이션
+const plans = document.querySelectorAll('.plans');
+const mobileMedia = window.matchMedia('(max-width: 768px)');
+
 const scrollItems = document.querySelectorAll('.scroll-up, .text-focus-in');
 
 const observer = new IntersectionObserver((entries) => {
@@ -14,167 +17,159 @@ const observer = new IntersectionObserver((entries) => {
 scrollItems.forEach((item) => {
     observer.observe(item);
 });
+// ✅ Benefit Sticky Swiper
+const benefitSection =
+    document.querySelector(".benefit");
 
-// ✅ benefit sticky 장면 전환
-const benefitSection = document.querySelector(".benefit");
-const benefitSticky = document.querySelector(".benefit-sticky");
-const benefitItems = document.querySelectorAll(".benefit-slider .benefit-content");
+const benefitDesktop =
+    document.querySelector(".benefit-desktop");
 
-let currentBenefitIndex = 0;
-let isWheelLocked = false;
-let prevScrollY = window.scrollY;
-let isSnapping = false;
+const benefitSwiper = new Swiper(".benefitSwiper", {
+    direction: "vertical",
 
-function isDesktopBenefit() {
-    return window.innerWidth > 768;
-}
+    slidesPerView: 1,
 
-function clamp(num, min, max) {
-    return Math.max(min, Math.min(num, max));
-}
+    speed: 700,
 
-function getBenefitTop() {
-    return window.scrollY + benefitSection.getBoundingClientRect().top;
-}
+    // 페이지 스크롤과 연결할 것이므로
+    // Swiper 자체 드래그는 막음
+    allowTouchMove: false,
+    simulateTouch: false,
 
-function showBenefitContent(index) {
-    if (!benefitItems.length) return;
+    observer: true,
+    observeParents: true,
+});
 
-    const lastIndex = benefitItems.length - 1;
-    const safeIndex = clamp(index, 0, lastIndex);
 
-    benefitItems.forEach((item, i) => {
-        if (i === safeIndex) {
-            item.classList.add("is-active");
-        } else {
-            item.classList.remove("is-active");
-        }
-    });
+let benefitAnimationFrame = null;
 
-    currentBenefitIndex = safeIndex;
-}
 
-function scrollToBenefitScene(index, behavior = "smooth") {
-    const benefitTop = getBenefitTop();
-    const sceneHeight = benefitSticky.offsetHeight;
-
-    window.scrollTo({
-        top: benefitTop + sceneHeight * index,
-        behavior: behavior,
-    });
-}
-
-// 스크롤바 드래그, 키보드 스크롤, 빠른 스크롤 상황 보정
-function syncBenefitByScroll() {
-    if (!benefitSection || !benefitSticky || benefitItems.length === 0) return;
-    if (!isDesktopBenefit()) return;
-    if (isSnapping) return;
-
-    const scrollY = window.scrollY;
-    const benefitTop = getBenefitTop();
-    const sceneHeight = benefitSticky.offsetHeight;
-    const lastIndex = benefitItems.length - 1;
-
-    // benefit sticky가 실제로 유지되는 전체 스크롤 끝 지점
-    const benefitScrollEnd = benefitTop + benefitSection.offsetHeight - window.innerHeight;
-
-    // 위에서 아래로 처음 benefit에 들어올 때 너무 깊게 들어오면 intro로 보정
-    if (prevScrollY < benefitTop && scrollY >= benefitTop && scrollY < benefitScrollEnd) {
-        isSnapping = true;
-        showBenefitContent(0);
-
-        window.scrollTo({
-            top: benefitTop,
-            behavior: "auto",
-        });
-
-        setTimeout(() => {
-            isSnapping = false;
-        }, 50);
-
-        prevScrollY = benefitTop;
+function updateBenefitSwiper() {
+    // 요소가 없으면 실행하지 않음
+    if (
+        !benefitSection ||
+        !benefitDesktop ||
+        !benefitSwiper
+    ) {
+        benefitAnimationFrame = null;
         return;
     }
 
-    // 아래에서 위로 benefit에 다시 들어올 때는 마지막 장면으로 보정
-    if (prevScrollY > benefitScrollEnd && scrollY <= benefitScrollEnd && scrollY > benefitTop) {
-        isSnapping = true;
-        showBenefitContent(lastIndex);
 
-        window.scrollTo({
-            top: benefitTop + sceneHeight * lastIndex,
-            behavior: "auto",
-        });
-
-        setTimeout(() => {
-            isSnapping = false;
-        }, 50);
-
-        prevScrollY = benefitTop + sceneHeight * lastIndex;
+    // 모바일은 기존 benefit 카드 사용
+    if (window.innerWidth <= 768) {
+        benefitAnimationFrame = null;
         return;
     }
 
-    // benefit 구간 안에 있을 때 현재 위치에 맞춰 장면 표시
-    if (scrollY >= benefitTop && scrollY <= benefitScrollEnd) {
-        const scrolledInBenefit = scrollY - benefitTop;
-        const index = Math.round(scrolledInBenefit / sceneHeight);
-        showBenefitContent(index);
+
+    // benefit 섹션의 현재 화면 기준 위치
+    const benefitRect =
+        benefitSection.getBoundingClientRect();
+
+
+    // 화면에 고정되어 있는 영역의 높이
+    const stickyHeight =
+        benefitDesktop.offsetHeight;
+
+
+    /*
+      benefit 전체 높이에서
+      실제 고정 화면 높이를 뺀 값
+
+      이 값이 benefit 내부에서
+      실제로 스크롤할 수 있는 거리
+    */
+    const scrollableDistance =
+        benefitSection.offsetHeight - stickyHeight;
+
+
+    /*
+      benefit이 화면 상단에 도착하면 0
+
+      이후 아래로 스크롤할수록
+      값이 양수로 증가
+    */
+    let scrolledDistance =
+        -benefitRect.top;
+
+
+    // 스크롤 값이 범위를 벗어나지 않도록 제한
+    scrolledDistance = Math.max(
+        0,
+        Math.min(
+            scrolledDistance,
+            scrollableDistance
+        )
+    );
+
+
+    // 전체 슬라이드 개수
+    const slideCount =
+        benefitSwiper.slides.length;
+
+
+    /*
+      한 슬라이드당 사용할 스크롤 거리
+
+      현재:
+      전체 스크롤 거리 ÷ 슬라이드 4장
+    */
+    const slideScrollDistance =
+        scrollableDistance / slideCount;
+
+
+    // 현재 보여줄 슬라이드 번호 계산
+    let nextIndex = Math.floor(
+        scrolledDistance / slideScrollDistance
+    );
+
+
+    // 마지막 슬라이드 번호를 넘지 않도록 제한
+    nextIndex = Math.min(
+        nextIndex,
+        slideCount - 1
+    );
+
+
+    // 슬라이드가 바뀔 때만 실행
+    if (benefitSwiper.activeIndex !== nextIndex) {
+        benefitSwiper.slideTo(nextIndex);
     }
 
-    prevScrollY = scrollY;
+
+    benefitAnimationFrame = null;
 }
 
-// benefit 안에서는 휠 한 번에 한 장면씩만 이동
+
+function requestBenefitUpdate() {
+    // 한 프레임에 여러 번 실행되는 것 방지
+    if (benefitAnimationFrame !== null) return;
+
+    benefitAnimationFrame =
+        requestAnimationFrame(updateBenefitSwiper);
+}
+
+
 window.addEventListener(
-    "wheel",
-    function (event) {
-        if (!benefitSection || !benefitSticky || benefitItems.length === 0) return;
-        if (!isDesktopBenefit()) return;
-
-        const scrollY = window.scrollY;
-        const benefitTop = getBenefitTop();
-        const sceneHeight = benefitSticky.offsetHeight;
-        const lastIndex = benefitItems.length - 1;
-
-        const benefitScrollEnd = benefitTop + benefitSection.offsetHeight - window.innerHeight;
-
-        const isInBenefit =
-            scrollY >= benefitTop &&
-            scrollY <= benefitScrollEnd;
-
-        if (!isInBenefit) return;
-
-        const direction = event.deltaY > 0 ? 1 : -1;
-
-        // 첫 장면에서 위로 스크롤하면 이전 섹션으로 나가게 둠
-        if (direction < 0 && currentBenefitIndex === 0) return;
-
-        // 마지막 장면에서 아래로 스크롤하면 다음 섹션으로 나가게 둠
-        if (direction > 0 && currentBenefitIndex === lastIndex) return;
-
-        event.preventDefault();
-
-        if (isWheelLocked) return;
-
-        isWheelLocked = true;
-
-        const nextIndex = currentBenefitIndex + direction;
-
-        showBenefitContent(nextIndex);
-        scrollToBenefitScene(nextIndex, "smooth");
-
-        setTimeout(() => {
-            isWheelLocked = false;
-        }, 800);
-    },
-    { passive: false }
+    "scroll",
+    requestBenefitUpdate,
+    { passive: true }
 );
 
-window.addEventListener("scroll", syncBenefitByScroll);
-window.addEventListener("resize", syncBenefitByScroll);
-window.addEventListener("load", syncBenefitByScroll);
+window.addEventListener(
+    "resize",
+    requestBenefitUpdate
+);
 
-syncBenefitByScroll();
+window.addEventListener(
+    "load",
+    requestBenefitUpdate
+);
+
+
+// 처음 페이지를 열었을 때 한 번 실행
+updateBenefitSwiper();
 
 //✅ 리뷰 숫자 카운트 애니메이션
 const reviewCount = document.querySelector(".review-count");

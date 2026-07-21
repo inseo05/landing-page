@@ -48,7 +48,7 @@
 
     <ul class="mobile-menu-list">
       <li>
-        <a href="#">
+        <a href="#flowers">
           Flowers
           <img src="./assets/icons/right_arrow-icon.png" alt="">
           <!-- <span class="menu-arrow"></span>/ -->
@@ -56,7 +56,7 @@
       </li>
 
       <li>
-        <a href="#">
+        <a href="#plans">
           Plans
           <img src="./assets/icons/right_arrow-icon.png" alt="">
           <!-- <span class="menu-arrow"></span> -->
@@ -64,7 +64,7 @@
       </li>
 
       <li>
-        <a href="#">
+        <a href="#reviews">
           Reviews
           <img src="./assets/icons/right_arrow-icon.png" alt="">
           <!-- <span class="menu-arrow"></span> -->
@@ -76,7 +76,7 @@
 
   <!-- ✅hero 섹션 -->
   <main>
-    <section class="hero" >
+    <section class="hero">
       <div class="container hero-container">
         <!-- 메인 섹션 -->
         <div class="hero-text">
@@ -119,7 +119,7 @@
         <div class="dot scroll-up delay-3">
           .<br>.<br>.
         </div>
-        <div class="solution-text scroll-up delay-4">
+        <div class="solution-text scroll-up delay-3">
           꽃집에 가지 않아도 괜찮아요.<br>
           <span class="emphasis">플로리스트</span>가 고른 신선한 <span class="emphasis">계절 꽃</span>을<br>
           <span class="emphasis">원하는 주기</span>에 맞춰 집 앞까지 보내드려요.<br>
@@ -130,104 +130,141 @@
 
     <!-- ✅benefit 섹션 -->
     <section class="benefit">
-      <div class="benefit-desktop">
-        <div class="benefit-sticky">
-          <div class="top-bg">
-            <div class="top-bg-shape"></div>
-          </div>
-          <div class="container benefit-container">
 
-            <div class="benefit-slider">
-              <!-- ---intro--- -->
-              <div class="benefit-content benefit-intro is-active">
+      <!-- PC benefit Swiper -->
+      <div class="benefit-desktop">
+
+        <div class="top-bg">
+          <div class="top-bg-shape"></div>
+        </div>
+
+        <div class="container benefit-container">
+
+          <!-- Swiper 시작 -->
+          <div class="swiper benefitSwiper">
+
+            <div class="swiper-wrapper">
+
+              <!-- intro -->
+              <div class="swiper-slide benefit-content benefit-intro">
                 <div class="benefit-texts">
                   <div class="benefit-title">
                     이런 거 찾으셨나요?
                   </div>
                 </div>
               </div>
-              <!-- ---1--- -->
-              <div class="benefit-content  benefit-first">
+
+              <!-- 1 -->
+              <div class="swiper-slide benefit-content benefit-first">
+
                 <img src="./assets/images/benefit-1.webp" alt="베네핏이미지" class="benefit-img">
-                <div class="benefit-texts ">
+
+                <div class="benefit-texts">
                   <span class="num">1</span>
+
                   <div class="benefit-title">
                     계절마다 어울리는 꽃을<br>
                     플로리스트가 직접<br>
                     <span class="emphasis">새로운 꽃 구성.</span>
                   </div>
                 </div>
+
               </div>
-              <!-- ---2--- -->
-              <div class="benefit-content benefit-second reverse">
+
+              <!-- 2 -->
+              <div class="swiper-slide benefit-content benefit-second reverse">
+
                 <img src="./assets/images/benefit-2.webp" alt="베네핏이미지" class="benefit-img">
+
                 <div class="benefit-texts">
                   <span class="num">2</span>
+
                   <div class="benefit-title">
                     크기와 색감까지<br>
                     내 취향에 맞게 고르는<br>
                     <span class="emphasis">맞춤 꽃 선택.</span>
                   </div>
                 </div>
+
               </div>
-              <!-- ---3--- -->
-              <div class="benefit-content benefit-third">
-                <img src="./assets/images/benefit-3.webp" alt="베네핏이미지" class="benefit-img ">
-                <div class="benefit-texts ">
+
+              <!-- 3 -->
+              <div class="swiper-slide benefit-content benefit-third">
+
+                <img src="./assets/images/benefit-3.webp" alt="베네핏이미지" class="benefit-img">
+
+                <div class="benefit-texts">
                   <span class="num">3</span>
+
                   <div class="benefit-title">
                     처음 받아도 쉽게,<br>
                     꽃과 함께 전해지는<br>
                     <span class="emphasis">관리법 카드.</span>
                   </div>
                 </div>
+
               </div>
+
             </div>
           </div>
+          <!-- Swiper 끝 -->
+
         </div>
       </div>
 
+      <!-- 기존 모바일 benefit은 그대로 유지 -->
       <div class="benefit-mobile">
         <div class="top-bg">
           <div class="top-bg-shape"></div>
         </div>
 
         <div class="container benefit-mobile-container">
+
           <div class="benefit-card card1 scroll-up">
             <div class="card-text">
               <span class="num">Point 1</span>
+
               <div class="benefit-mobile-title">
-                계절마다 어울리는 <br>꽃을 플로리스트가 <br>
+                계절마다 어울리는 <br>
+                꽃을 플로리스트가 <br>
                 <span class="emphasis">새로운 꽃 구성.</span>
               </div>
             </div>
+
             <img src="./assets/images/mo-benefit-1.webp" alt="베네핏이미지" class="benefit-mobile-img">
           </div>
 
-          <!-- ---2--- -->
           <div class="benefit-card card2 scroll-up">
             <div class="card-text">
               <span class="num">Point 2</span>
+
               <div class="benefit-mobile-title">
-                크기와 색감까지<br>내 취향에 맞게 고르는<br>
+                크기와 색감까지<br>
+                내 취향에 맞게 고르는<br>
                 <span class="emphasis">맞춤 꽃 선택.</span>
               </div>
             </div>
+
             <img src="./assets/images/mo-benefit-2.webp" alt="베네핏이미지" class="benefit-mobile-img">
           </div>
-          <!-- ---3--- -->
+
           <div class="benefit-card card3 scroll-up">
             <div class="card-text">
               <span class="num">Point 3</span>
+
               <div class="benefit-mobile-title">
-                처음 받아도 쉽게,<br>꽃과 함께 전해지는<br>
+                처음 받아도 쉽게,<br>
+                꽃과 함께 전해지는<br>
                 <span class="emphasis">관리법 카드.</span>
               </div>
             </div>
+
             <img src="./assets/images/mo-benefit-3.webp" alt="베네핏이미지" class="benefit-mobile-img">
           </div>
+
         </div>
       </div>
+
     </section>
 
     <!-- ✅Monthly-Flower 섹션 -->
@@ -412,7 +449,7 @@
                     <p class="flower-num-text">기본 사이즈 꽃다발 (10~15송이) </p>
                   </div>
                   <!-- 설명 -->
-                  <div class="plan-name-description">              일상 공간에 가장 잘 어울리는 균형 잡힌 구성</div>
+                  <div class="plan-name-description"> 일상 공간에 가장 잘 어울리는 균형 잡힌 구성</div>
                 </div>
                 <div class="plan-img bouquet"></div>
               </div>
@@ -836,7 +873,6 @@
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
-
   <script src="./assets/js/main.js"></script>
 
 

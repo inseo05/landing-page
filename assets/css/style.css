@@ -178,6 +178,7 @@ body {
 
     font-size: 1.125rem;
     font-weight: 300;
+    line-height: 1;
 }
 
 .nav button:hover {
@@ -377,65 +378,68 @@ body {
 /* 🟪❇️--- benefit --- */
 .benefit {
     position: relative;
+
     height: calc(var(--benefit-sticky-height) * 5);
 }
 
 .benefit-desktop {
+    position: sticky;
+    top: 0;
+
     display: block;
-    height: 100%;
+
+    width: 100%;
+    height: var(--benefit-sticky-height);
+
+    overflow: hidden;
 }
 
 .benefit-mobile {
     display: none;
 }
 
-.benefit-container {
-    height: calc(var(--benefit-sticky-height) - 9.0625rem);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* padding-bottom: var(--container-tb-padding); */
-}
-
+/* 상단 물결 배경 */
 .top-bg {
     width: 100%;
     height: 9.0625rem;
     background: url(../images/bg_shape.webp) no-repeat center / cover;
 }
 
-.benefit-sticky {
-    position: sticky;
-    top: 0;
-    height: var(--benefit-sticky-height);
+/* 상단 배경을 제외한 Swiper 영역 */
+.benefit-container {
+    height: calc(var(--benefit-sticky-height) - 9.0625rem);
+}
+
+/* benefit 전용 Swiper */
+.benefitSwiper {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
-.benefit-slider {
-    position: relative;
+.benefitSwiper .swiper-wrapper {
     width: 100%;
     height: 100%;
 }
 
-
+/* 각각의 benefit 슬라이드 */
 .benefit-content {
-    position: absolute;
-    inset: 0;
+    width: 100%;
+    height: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(3.75rem, 5vw, 6.25rem);
 
-    opacity: 0;
-    transform: translateY(5rem);
-    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    gap: clamp(3.75rem, 5vw, 6.25rem);
 }
 
+/* 두 번째 슬라이드는 이미지와 텍스트 순서 반대 */
 .benefit-content.reverse {
-    display: flex;
     flex-direction: row-reverse;
 }
 
+/* 두 번째 슬라이드 포인트 색상 */
 .benefit-second .num {
     background-color: var(--brand-g-3);
 }
@@ -444,13 +448,6 @@ body {
     color: var(--brand-g-3);
 }
 
-.benefit-content.is-active {
-    opacity: 1;
-    transform: translateY(0);
-
-}
-
-
 .benefit-img {
     width: clamp(21.25rem, 34.7222vw, 39.451875rem);
     max-width: 31.5rem;
@@ -458,7 +455,6 @@ body {
 }
 
 .benefit-texts {
-    /* width: 55%; */
     height: auto;
 }
 
@@ -470,6 +466,7 @@ body {
     width: 3.625rem;
     height: 3.625rem;
     border-radius: 100px;
+
     background-color: var(--brand-p-2);
     color: var(--light-1);
 
@@ -1088,7 +1085,13 @@ body {
     border-radius: 1.25rem;
 
     box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
 }
+
+.ship-card:hover {
+    transform: translateY(-0.3125rem);
+}
+
 
 
 .ship-icon {
@@ -1283,7 +1286,7 @@ body {
     content: "";
     width: 1.5rem;
     height: 1.5rem;
-    background: url(../icons/right-allow-icon.png) no-repeat center / contain;
+    background: url(../icons/right-arrow-light-icon.png) no-repeat center / contain;
 }
 
 .cta-btn:hover {
@@ -1799,11 +1802,11 @@ body {
     }
 
     .eng-flower-name {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     .kor-flower-name {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .flower-tag {
@@ -1820,6 +1823,7 @@ body {
         /* background-color: rgba(255, 255, 255, 0.5); */
         color: var(--dark-2);
         padding: 0.25rem 0.25rem;
+        font-size: 0.875rem;
     }
 
     .mo-br {
@@ -1831,6 +1835,9 @@ body {
     }
 
     /* ---- 🟪subscription ---- */
+    .plans {
+        transition: none;
+    }
 
     .plan-container {
         padding-bottom: 2.5rem;
@@ -1847,10 +1854,13 @@ body {
         grid-auto-rows: 17.90625rem;
     }
 
-    .standard-bottom {
-        gap: 0.75rem;
+    .plan-bottom {
+        line-height: 110%;
     }
 
+    .standard-bottom {
+        gap: 1rem;
+    }
 
     .plan-bottom-title {
         gap: 0.75rem;
@@ -1894,6 +1904,12 @@ body {
     .sub-btn {
         height: 2.875rem;
         font-size: 1rem;
+
+    }
+
+    .share {
+        width: 2.625rem;
+        height: 2.625rem;
     }
 
     /* 🟪--- review --- */
