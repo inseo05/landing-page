@@ -459,6 +459,10 @@ body {
     height: auto;
 }
 
+.benefit-second img {
+    width: clamp(21.25rem, 34.7222vw, 26.25rem);
+}
+
 .num {
     font-family: var(--font-main);
     font-size: 2rem;
