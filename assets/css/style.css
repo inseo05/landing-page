@@ -217,6 +217,15 @@ body {
     color: var(--light-1);
     text-align: right;
     margin-bottom: 13.75rem;
+
+    transition:
+        opacity 0.8s ease,
+        transform 1.2s ease;
+}
+
+.hero-text.is-show {
+    opacity: 1;
+    transform: translateY(-20px);
 }
 
 .hero-subtitle {
@@ -2375,6 +2384,10 @@ body {
 .scroll-up.is-show {
     opacity: 1;
     transform: translateY(0);
+}
+
+.delay-0 {
+    transition-delay: 0.1s;
 }
 
 .delay-1 {

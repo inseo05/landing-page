@@ -2,7 +2,7 @@
 const plans = document.querySelectorAll('.plans');
 const mobileMedia = window.matchMedia('(max-width: 768px)');
 
-const scrollItems = document.querySelectorAll('.scroll-up, .text-focus-in, .mobile-scroll-up');
+const scrollItems = document.querySelectorAll('.scroll-up, .text-focus-in, .mobile-scroll-up, .hero-text');
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -25,11 +25,14 @@ const benefitDesktop =
     document.querySelector(".benefit-desktop");
 
 const benefitSwiper = new Swiper(".benefitSwiper", {
-    direction: "vertical",
+    effect: "fade",
+    fadeEffect: {
+        crossFade: true,
+    },
 
     slidesPerView: 1,
 
-    speed: 700,
+    speed: 600,
 
     // 페이지 스크롤과 연결할 것이므로
     // Swiper 자체 드래그는 막음
